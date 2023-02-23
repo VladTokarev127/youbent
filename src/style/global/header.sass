@@ -1,0 +1,187 @@
+.header
+	padding-left: 55px
+	background: #000
+	position: fixed
+	z-index: 99
+	left: 0
+	top: 0
+	width: 100%
+	@include media-breakpoint-down(lg)
+		padding-left: 15px
+		padding-bottom: 5px
+	.container
+		width: 100%
+		max-width: 100%
+		padding: 0
+	&__logo
+		display: flex
+		align-items: center
+		color: #fff
+		fill: #fff
+		transition: .3s ease-in-out
+		text-decoration: none
+		@include media-breakpoint-down(lg)
+			margin-right: auto
+		&:hover,
+		&:focus-visible
+			color: #BB2423
+			.header__logo-icon
+				fill: #BB2423
+				border-color: #bb2423
+		&-icon
+			display: flex
+			align-items: center
+			justify-content: center
+			width: 43px
+			height: 43px
+			border: 2px solid #fff
+			margin-right: 17px
+			transition: .3s ease-in-out
+			@include media-breakpoint-down(lg)
+				width: 30px
+				height: 30px
+				margin-right: 10px
+			svg
+				width: 27px
+				height: auto
+				@include media-breakpoint-down(lg)
+					width: 15px
+		&-text
+			font-size: 30px
+			font-family: $syne-font
+			@include media-breakpoint-down(lg)
+				font-size: 20px
+	&__nav
+		margin-left: auto
+		margin-right: auto
+		@include media-breakpoint-down(lg)
+			position: absolute
+			left: 0
+			top: 100%
+			background-color: #000
+			width: 100%
+			text-align: center
+			display: none
+		ul
+			display: flex
+			align-items: center
+			margin: 0
+			padding: 0
+			list-style-type: none
+			@include media-breakpoint-down(lg)
+				display: block
+		li
+			font-size: 14px
+			line-height: 50px
+			margin-right: 81px
+			font-weight: bold
+			@include media-breakpoint-down(lg)
+				margin-right: 0
+			&.current-menu-item
+				a
+					color: #bb2423 !important
+			&:last-child
+				margin-right: 0
+		a
+			display: inline-block
+			vertical-align: top
+			color: #fff !important
+			padding: 10px
+			text-decoration: none
+			transition: .3s ease-in-out
+			&:hover,
+			&:focus-visible
+				color: #bb2423 !important
+	&__login
+		margin-right: 15px
+		@include media-breakpoint-down(lg)
+			margin-right: 0
+			flex: 1 100%
+			order: 1
+			display: flex
+			justify-content: flex-end
+			padding: 0 15px
+			margin-top: 5px
+		a
+			display: flex
+			align-items: center
+			text-decoration: none
+		&-icon
+			width: 22px
+			margin-right: 14px
+			fill: #BB2423
+			font-size: 0
+			line-height: 0
+			svg
+				width: 100%
+				height: auto
+		&-text
+			color: #bb2423
+			font-size: 16px
+	&__cart
+		width: 100px
+		height: 100px
+		background-color: #bb2423
+		display: flex
+		align-items: center
+		justify-content: center
+		text-decoration: none
+		font-size: 90px
+		@include media-breakpoint-down(lg)
+			width: 60px
+			height: 60px
+		svg
+			position: relative
+			left: 10px
+			width: 56px
+			height: auto
+	&__menu
+		width: 60px
+		height: 60px
+		display: none
+		align-items: center
+		justify-content: center
+		text-align: center
+		text-decoration: none
+		transition: .3s ease-in-out
+		background: #BB2423
+		border: 0
+		cursor: pointer
+		@include media-breakpoint-down(lg)
+			display: flex
+		&:hover,
+		&:focus-visible,
+		&.is-active
+			background-color: #BB2423
+		&.is-active
+			span
+				background: transparent
+				transform: rotate(90deg)
+				&::before
+					transform: rotate(45deg)
+					top: 0
+					background-color: #000
+				&::after
+					transform: rotate(-45deg)
+					bottom: 0
+					background-color: #000
+		span
+			display: block
+			position: relative
+			width: 25px
+			height: 3px
+			transition: .3s
+			background-color: #000
+			&::before,&::after
+				content: ''
+				display: block
+				width: 25px
+				height: 3px
+				background: #000
+				position: absolute
+				left: 0px
+				transition: all 0.3s linear
+			&::before
+				top: -8px
+			&::after
+				bottom: -8px
