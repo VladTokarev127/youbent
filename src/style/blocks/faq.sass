@@ -1,0 +1,71 @@
+.faq
+	&__title
+		text-align: center
+		color: #bb2423
+		font-size: 40px
+		font-family: $syne-font
+		margin-bottom: 40px
+		width: 100%
+	&__tabs
+		display: flex
+		align-items: center
+		width: 100%
+	&__tab
+		margin-right: 30px
+		font-size: 14px
+		cursor: pointer
+		display: block
+		background: 0
+		padding: 0
+		border: 0
+		transition: .3s ease-in-out
+		font-weight: 400
+		&:last-child
+			margin-right: 0
+		&:hover,
+		&:focus-visible
+			color: #bb2423
+			background: 0
+		&.is-active
+			color: #bb2423
+			font-weight: 700
+	&__contents
+		width: 100%
+	&__item
+		padding: 15px 0
+		border-bottom: 1px solid #c7c7c7
+	&__head
+		display: flex
+		align-items: center
+		justify-content: space-between
+		color: #757575
+		fill: #757575
+		cursor: pointer
+		font-size: 18px
+		padding: 18px 0
+		&.is-active
+			svg
+				transform: rotate(0)
+		span
+			flex: 1
+		svg
+			font-size: 0
+			transition: .3s ease-in-out
+			transform: rotate(180deg)
+	&__body
+		display: none
+	&__links
+		display: flex
+		align-items: center
+	&__link
+		margin-right: 10px
+		margin-bottom: 0 !important
+		color: #757575
+		transition: .3s ease-in-out
+		svg,path,g
+			color: inherit
+		&:last-child
+			margin-right: 0
+		&:hover,
+		&:focus-visible
+			opacity: 0.8

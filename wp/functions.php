@@ -52,3 +52,12 @@
 			'redirect'    => false
 		));
 	}
+
+	add_action('woocommerce_before_shop_loop_item_title', 'addWarranty', 10 );
+	function addWarranty() {
+		global $product;
+		$warranty = get_field( 'warranty', $product->get_id() );
+		if (!empty($warranty)) {
+			echo '<div class="product__warranty">'. $warranty .'</div>';
+		}
+	}

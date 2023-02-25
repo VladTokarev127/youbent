@@ -43,6 +43,30 @@
 	</div>
 
 	<?php wp_footer(); ?>
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded',function() {
+			setInterval(function() {
+				if (!$('.woocommerce-ordering *').is('.select2')) {
+					$('.orderby').select2({
+						minimumResultsForSearch: -1
+					});
+				}
+			}, 100)
+			// $('.bapf_body').each(function() {
+			// 	let body = $(this);
+			// 	let head = body.prev();
+			// 	if (body.find('input').is(':checked')) {
+			// 		body.show();
+			// 		head.addClass('is-active');
+			// 	}
+			// });
+			$(document).on('change', '.orderby', function(){
+				$('.woocommerce-ordering').trigger('submit')
+			});
+		});
+	</script>
 
 </body>
 </html>

@@ -1,0 +1,125 @@
+.shop
+	&__container
+		display: flex
+		flex-direction: column
+		align-items: center
+		padding: 0 80px
+		@include media-breakpoint-down(lg)
+			padding: 0 15px
+		.hero__about-title
+			margin-bottom: 80px
+	&__btns
+		max-width: 382px
+		margin: 0 auto
+		width: 100%
+	&__list
+		margin-bottom: 50px
+		.products
+			display: grid
+			grid-template-columns: repeat(6,1fr)
+			grid-gap: 20px
+			@include media-breakpoint-down(lg)
+				grid-template-columns: repeat(4,1fr)
+			@include media-breakpoint-down(md)
+				grid-template-columns: repeat(3,1fr)
+			@include media-breakpoint-down(sm)
+				grid-template-columns: repeat(2,1fr)
+			@include media-breakpoint-down(xs)
+				grid-template-columns: repeat(1,1fr)
+			li.product
+				margin-bottom: 0 !important
+		.product__warranty
+			position: absolute
+			left: 0
+			top: 0
+			padding: 2px 12px
+			background-color: #bb2423
+			color: #fff
+			display: inline-block
+			vertical-align: top
+			z-index: 9
+			font-size: 14px
+		.tinv-wraper.tinv-wishlist
+			display: none !important
+		.add_to_cart_button
+			display: none !important
+		.price
+			margin-bottom: 0 !important
+			color: #757575 !important
+			font-size: 14px !important
+		.woocommerce-loop-product__title
+			color: #bb2423 !important
+			font-size: 18px !important
+			margin-bottom: 10px !important
+			padding-bottom: 10px !important
+			position: relative !important
+			&::after
+				position: absolute
+				left: 50%
+				bottom: 0
+				transform: translate(-50%, 0)
+				content: ''
+				width: 20px
+				height: 1px
+				background-color: #000
+	img
+		margin-bottom: 16px !important
+	&__btn
+		margin-bottom: 50px
+		&:last-child
+			margin-bottom: 0
+	
+	&__header
+		margin-left: -80px
+		margin-right: -80px
+		width: calc(100% + 80px * 2)
+		background-color: #bb2423
+		display: flex
+		align-items: stretch
+		height: 460px
+		@include media-breakpoint-down(lg)
+			margin-left: -15px
+			margin-right: -15px
+			width: calc(100% + 15px * 2)
+		@include media-breakpoint-down(md)
+			flex-wrap: wrap
+			height: auto
+		&-content
+			display: flex
+			align-items: center
+			justify-content: center
+			flex: 0 40%
+			@include media-breakpoint-down(md)
+				flex: 1 100%
+				padding: 20px
+		&-title
+			flex: 0 355px
+			height: 177px
+			border: 3px solid #fff
+			color: #fff
+			font-family: $syne-font
+			font-size: 51px
+			display: flex
+			align-items: center
+			justify-content: center
+			text-align: center
+			text-transform: uppercase
+			letter-spacing: 2.55px
+			@include media-breakpoint-down(md)
+				height: 100%
+				flex: 1 100%
+				font-size: 38px
+		&-img
+			font-size: 0
+			flex: 0 60%
+			height: 100%
+			@include media-breakpoint-down(md)
+				order: -1
+				height: 350px
+				flex: 1 100%
+			@include media-breakpoint-down(xs)
+				height: 150px
+			img
+				width: 100%
+				height: 100%
+				object-fit: cover

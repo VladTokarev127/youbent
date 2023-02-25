@@ -5,7 +5,7 @@
 		<div class="hero__content">
 
 			<h1 class="hero__title"><b>YOU<span>ВЕНТ</span></b> - ИНТЕРНЕТ МАГАЗИН КАЧЕСТВЕННОГО КЛИМАТИЧЕСКОГО ОБОРУДОВАНИЯ</h1>
-			<a href="/shop" class="btn btn_border hero__btn">ОНЛАЙН МАГАЗИН</a>
+			<a href="/magazin" class="btn btn_border hero__btn">ОНЛАЙН МАГАЗИН</a>
 
 		</div>
 	</section>
@@ -20,7 +20,7 @@
 				<p>«YOUВЕНТ» — компания, которая реализует вентиляционное и климатическое оборудование. Мы оказываем компетентные услуги с 2016 года, предлагая нашим клиентам надежную, практичную и долговечную продукцию от проверенных производителей.</p>
 				<p>«Климатлайн» теперь ОНЛАЙН! Уважаемые клиенты, наше климатическое оборудование доступно не только в нашем розничном магазине в г. Мытищи, но и в интернете!</p>
 			</div>
-			<a href="/shop" class="btn hero__about-btn">КУПИТЬ ОНЛАЙН</a>
+			<a href="/magazin" class="btn hero__about-btn">КУПИТЬ ОНЛАЙН</a>
 
 		</div>
 	</section>
@@ -80,6 +80,23 @@
 		</div>
 	</section>
 	<!-- end section more -->
+
+	<!-- start section shop -->
+	<section class="shop">
+		<div class="shop__container">
+
+			<h2 class="hero__about-title">МАГАЗИН КЛИМАТА</h2>
+			<div class="shop__list">
+				<?php echo do_shortcode ('[products limit="6" columns="5"]'); ?>
+			</div>
+			<div class="shop__btns">
+				<a href="#" class="shop__btn btn">Показать еще</a>
+				<a href="/magazin" class="shop__btn btn btn_border">ОНЛАЙН-МАГАЗИН ВЕНТИЛЯЦИИ</a>
+			</div>
+
+		</div>
+	</section>
+	<!-- end section shop -->
 
 	<!-- start section dev -->
 	<section class="dev">

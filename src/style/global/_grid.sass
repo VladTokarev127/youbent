@@ -47,9 +47,9 @@ body textarea:required:valid
 	color: #505050
 
 *, body
-	-webkit-tap-highlight-color: rgba(0,0,0,0)
-	-webkit-focus-ring-color: rgba(0,0,0,0)
-	outline: none
+	-webkit-tap-highlight-color: rgba(0,0,0,0) !important
+	-webkit-focus-ring-color: rgba(0,0,0,0) !important
+	outline: none !important
 
 html, body
 	height: 100%
@@ -112,3 +112,238 @@ h1,h2,h3,h4,h5,h6
 		&:focus-visible
 			background: #bb2423
 			color: #fff
+.storefront-sorting
+	&:last-child
+		display: none
+	.woocommerce-result-count
+		display: none
+
+.widget-area
+	display: none !important
+	float: none !important
+	flex: 0 240px !important
+	width: auto !important
+	margin-right: 10px !important
+	background-color: #000 !important
+	padding: 20px 20px 24px !important
+	order: -1 !important
+	.berocket_single_filter_widget 
+		margin-bottom: 0
+		input
+			display: none
+			&:checked + label::after
+				display: block
+		li
+			margin-bottom: 5px !important
+			&:last-child
+				margin-bottom: 0 !important
+		label
+			position: relative
+			margin: 0
+			font-size: 14px
+			color: #b6b6b6
+			transition: .3s ease-in-out
+			font-family: $syne-font
+			&:hover,
+			&:focus-visible
+				color: #666
+			&::after
+				display: none
+				left: 5px
+				position: absolute
+				top: 2px
+				width: 4px
+				height: 8px
+				content: ""
+				border: solid #000
+				border-width: 0 1px 1px 0
+				transform: rotate(45deg)
+			&::before
+				margin-right: 10px
+				display: inline-block
+				width: 13px
+				height: 13px
+				vertical-align: text-top
+				content: ""
+				background: #fff
+				border: 1px solid #c9c9c9
+		&:nth-child(2)
+			input
+				display: none
+				&:checked + label
+					color: #fff !important
+					font-weight: 700
+			label
+				&::after,
+				&::before
+					display: none
+	.bapf_slidr_main.ui-widget-content .ui-slider-range
+		background: #ccc
+	.bapf_from,
+	.bapf_to
+		display: inline-flex
+		align-items: center
+		color: #ccc
+		font-size: 14px
+		font-family: $syne-font
+	.bapf_tbprice
+		order: 1
+		margin-left: 3px
+	.bapf_to
+		justify-content: flex-end
+	.bapf_sfilter
+		padding: 20px 0
+		border-bottom: 1px solid rgba(#fff, .2)
+		margin-bottom: 0
+	.bapf_body
+		padding-top: 20px
+		display: none
+	.bapf_head
+		cursor: pointer
+		display: flex
+		align-items: center
+		justify-content: space-between
+		&.is-active
+			&::after
+				content: '-'
+		&::after
+			display: flex
+			align-items: center
+			justify-content: center
+			content: '+'
+			color: #fff
+			font-size: 30px
+			line-height: 0
+			font-weight: 100
+			font-family: $syne-font
+		h3
+			color: #fff
+			font-size: 16px
+			font-family: $syne-font
+	.widget_block
+		margin-bottom: 0 !important
+		h2
+			color: #fff
+			font-size: 26px
+			font-family: $syne-font
+			padding-bottom: 20px
+			border-bottom: 1px solid rgba(#fff, .2)
+
+.content-area
+	width: auto !important
+	flex: 1 !important
+	float: none !important
+	margin-right: 0 !important
+
+.site-main ul.products.columns-5
+	display: grid !important
+	grid-template-columns: repeat(5,1fr) !important
+	grid-gap: 20px !important
+	@include media-breakpoint-down(lg)
+		grid-template-columns: repeat(4,1fr) !important
+	@include media-breakpoint-down(md)
+		grid-template-columns: repeat(3,1fr) !important
+	@include media-breakpoint-down(sm)
+		grid-template-columns: repeat(2,1fr) !important
+	@include media-breakpoint-down(xs)
+		grid-template-columns: repeat(1,1fr) !important
+
+.site-main ul.products.columns-5 li.product
+	width: auto !important
+	margin-right: 0 !important
+	float: none !important
+	margin-bottom: 0 !important
+	.product__warranty
+		position: absolute
+		left: 0
+		top: 0
+		padding: 2px 12px
+		background-color: #bb2423
+		color: #fff
+		display: inline-block
+		vertical-align: top
+		z-index: 9
+		font-size: 14px
+	.tinv-wraper.tinv-wishlist
+		display: none !important
+	.add_to_cart_button
+		display: none !important
+	.price
+		margin-bottom: 0 !important
+		color: #757575 !important
+		font-size: 14px !important
+	.woocommerce-loop-product__title
+		color: #bb2423 !important
+		font-size: 18px !important
+		margin-bottom: 10px !important
+		padding-bottom: 10px !important
+		position: relative !important
+		&::after
+			position: absolute
+			left: 50%
+			bottom: 0
+			transform: translate(-50%, 0)
+			content: ''
+			width: 20px
+			height: 1px
+			background-color: #000
+	img
+		margin-bottom: 16px !important
+
+ul.products::before, ul.products::after
+	display: none !important
+
+.select2-results__option
+	padding: 8px 20px !important
+	color: #fff !important
+	font-size: 15px !important
+	background-color: #000 !important
+.select2-container--default .select2-results__option--selected,
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable
+	background-color: #1f1f1f !important
+	color: #fff !important
+
+.page-template-page-shop
+	.woocommerce-ordering
+		.select2-container
+			width: 100% !important
+			.selection
+				width: 100%
+		.select2-container--default .select2-selection--single .select2-selection__arrow b
+			border-color: #fff transparent transparent
+		.select2-container .select2-selection--single
+			height: 40px
+			border-radius: 0
+			width: 100%
+			border: 0
+			background-color: #000000
+		.select2-container--default .select2-selection--single .select2-selection__rendered
+			line-height: 40px
+			color: #fff
+			font-size: 16px
+			padding: 0 20px
+		.select2-container--default .select2-selection--single .select2-selection__arrow
+			height: 38px
+
+	.woocommerce-ordering
+		float: none !important
+		margin-right: 0 !important
+		margin-bottom: 25px !important
+		margin-top: 25px !important
+		padding: 0 !important
+		width: 250px !important
+		margin-left: auto !important
+		display: block !important
+	.widget-area
+		display: block !important
+	main.main
+		padding: 0 80px !important
+		display: flex !important
+		align-items: stretch !important
+		flex-wrap: wrap !important
+		@include media-breakpoint-down(lg)
+			padding: 0 15px !important
+
+.page-content
+	flex: 1 100%
+	order: -9

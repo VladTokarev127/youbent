@@ -1,0 +1,62 @@
+.content
+	h2,h3,h4,h5
+		color: #757587
+		font-family: $syne-font
+		margin-top: 60px
+		margin-bottom: 25px !important
+		&:first-child
+			margin-top: 0
+		&:last-child
+			margin-bottom: 0 !important
+	h2
+		font-size: 40px
+	h3
+		font-size: 36px
+	h4
+		font-size: 32px
+	h5
+		font-size: 28px
+	ul,ol
+		margin: 0
+		padding: 0
+		padding-left: 36px
+		li
+			margin-bottom: 10px !important
+			&:last-child
+				margin-bottom: 0 !important
+	*
+		color: #000
+		margin: 0
+		margin-bottom: 19px !important
+		&:last-child
+			margin-bottom: 0 !important
+	&__page
+		padding-top: 80px
+		padding-bottom: 80px
+		background: #e8e6e6
+	&__container
+		max-width: 930px
+		padding: 0 15px
+		margin: 0 auto
+		display: flex
+		flex-direction: column
+		align-items: center
+	&__title
+		display: inline-flex
+		align-items: center
+		justify-content: center
+		text-align: center
+		margin: 0
+		margin-bottom: 60px
+		min-height: 126px
+		padding: 20px 60px
+		border: 3px solid #bb2423
+		letter-spacing: 0.05em
+		font-size: 70px
+		max-width: 100%
+		color: #bb2423
+		width: max-content
+		font-family: $syne-font
+		text-transform: uppercase
+		@include media-breakpoint-down(lg)
+			font-size: 38px
