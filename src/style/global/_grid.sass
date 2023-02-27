@@ -8,7 +8,7 @@
 		box-sizing: border-box
 
 *::-webkit-input-placeholder
-	color: #505050
+	color: #000
 	opacity: 1
 	transition: opacity .25s
 
@@ -16,7 +16,7 @@
 	opacity: 0
 
 *:-moz-placeholder
-	color: #505050
+	color: #000
 	opacity: 1
 	transition: opacity .25s
 
@@ -24,7 +24,7 @@
 	opacity: 0
 
 *::-moz-placeholder
-	color: #505050
+	color: #000
 	opacity: 1
 	transition: opacity .25s
 
@@ -32,7 +32,7 @@
 	opacity: 0
 
 *:-ms-input-placeholder
-	color: #505050
+	color: #000
 	opacity: 1
 	transition: opacity .25s
 
@@ -41,10 +41,10 @@
 
 body input:focus:required:invalid,
 body textarea:focus:required:invalid
-	color: #505050
+	color: #000
 body input:required:valid,
 body textarea:required:valid
-	color: #505050
+	color: #000
 
 *, body
 	-webkit-tap-highlight-color: rgba(0,0,0,0) !important
@@ -347,3 +347,215 @@ ul.products::before, ul.products::after
 .page-content
 	flex: 1 100%
 	order: -9
+
+.woocommerce-cart
+	background-color: #e8e6e6
+	.entry-header
+		display: none
+	.entry-content
+		background-color: #e8e6e6
+		.woocommerce
+			display: flex
+			flex-wrap: wrap
+			max-width: 980px
+			margin: 0 auto
+			padding: 20px 45px
+			@include media-breakpoint-down(sm)
+				padding: 15px
+		.woocommerce-notices-wrapper
+			flex: 1 100%
+			margin-bottom: 40px
+		.woocommerce-cart-form
+			margin-right: 50px
+			flex: 1
+			@include media-breakpoint-down(md)
+				margin-right: 0
+			&::before
+				display: block
+				color: #bb2423
+				content: 'Корзина'
+				font-size: 20px
+				font-family: $syne-font
+				text-transform: uppercase
+				border-bottom: 1px solid #bab8b8
+				padding-bottom: 32px
+			.shop_table
+				display: block
+				.product-remove
+					order: 1
+				.product-thumbnail
+					width: 102px
+					height: 102px
+					display: flex
+					align-items: center
+					justify-content: center
+					padding: 10px
+					background-color: #fff
+					border: 1px solid #abaaaa
+					margin-right: 20px
+					img
+						width: 100%
+						height: auto
+				.product-name
+					flex: 0 204px
+					margin-right: auto
+					a
+						color: #000
+						text-decoration: none
+				.product-price
+					position: absolute
+					left: 122px
+					top: 87px
+					color: #000
+					font-size: 14px
+					@include media-breakpoint-down(sm)
+						position: static
+				.product-quantity
+					flex: 0 80px
+					margin-right: auto
+				.product-quantity .qty
+					width: 80px !important
+					padding: 10px !important
+					border: 1px solid #000000 !important
+					height: 28px !important
+					font-size: 12px !important
+					font-family: inherit !important
+					background: 0 !important
+					max-width: 80px !important
+					@include media-breakpoint-down(sm)
+						margin-right: 0 !important
+				.product-subtotal
+					font-size: 16px
+					margin-right: auto
+				.variation
+					margin-top: 39px
+					font-size: 14px
+					& > *:nth-last-child(1),
+					& > *:nth-last-child(2),
+					& > *:nth-child(1),
+					& > *:nth-child(2)
+						display: none
+				tbody
+					display: block
+				tr
+					position: relative
+					display: flex
+					width: 100%
+					padding: 32px 0
+					border-bottom: 1px solid #bab8b8
+					@include media-breakpoint-down(sm)
+						flex-wrap: wrap
+						display: block
+					&:last-child
+						border-bottom: 0
+						padding-bottom: 0
+				td
+					display: block
+					background: 0
+					color: #000
+					@include media-breakpoint-down(sm)
+						margin-bottom: 10px
+				thead
+					display: none
+				td
+					padding: 0
+				.input-text
+					border: 1px solid #000 !important
+					font-family: inherit !important
+					font-size: 16px !important
+					font-family: inherit !important
+					background: 0 !important
+					padding: 0 10px !important
+					color: #000 !important
+					width: auto !important
+					height: 37px !important
+					margin-right: 20px
+					&:hover,
+					&:focus-visible
+						border-width: 2px !important
+				.actions
+					border-top: 0
+					display: flex
+					flex-wrap: wrap
+				.coupon
+					flex: 1 100%
+					display: flex
+					align-items: center
+					margin-bottom: 20px
+					@include media-breakpoint-down(sm)
+						flex-wrap: wrap
+				.button.wp-element-button
+					border: 2px solid #BB2423
+					padding: 0 15px
+					background: 0
+					display: flex
+					align-items: center
+					justify-content: center
+					text-align: center
+					text-decoration: none
+					transition: .3s ease-in-out
+					height: 36px
+					color: #bb2423
+					cursor: pointer
+					font-weight: normal
+					width: max-content
+					&:hover,
+					&:focus-visible
+						background: #bb2423
+						color: #fff
+					&::after
+						display: none
+		.cart-collaterals
+			flex: 0 280px
+			@include media-breakpoint-down(md)
+				flex: 1 100%
+			h2
+				font-size: 20px
+				font-family: $syne-font
+				text-transform: uppercase
+				border-bottom: 1px solid #bab8b8
+				padding-bottom: 32px
+				color: #bb2423
+		.cart_totals
+			width: 100%
+			.button
+				border: 2px solid #BB2423
+				background: 0
+				display: flex
+				align-items: center
+				justify-content: center
+				text-align: center
+				text-decoration: none
+				transition: .3s ease-in-out
+				padding: 0
+				height: 36px
+				color: #bb2423
+				cursor: pointer
+				font-weight: normal
+				&:hover,
+				&:focus-visible
+					background: #bb2423
+					color: #fff
+				&::after
+					display: none
+			tbody
+				display: block
+			tr
+				position: relative
+				display: flex
+				width: 100%
+				padding: 32px 0
+				border-bottom: 1px solid #bab8b8
+			td[data-title]::before
+				display: none !important
+			td, th
+				display: block
+				background: 0 !important
+				color: #000
+			td
+				flex: 1
+				text-align: right
+			thead
+				display: none
+			td, th
+				padding: 0

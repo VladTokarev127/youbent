@@ -7,20 +7,12 @@
 					<div class="footer__logo"><a href="/">МАГАЗИН <br>YOUВЕНТ</a></div>
 					<div class="footer__content">
 						<div class="footer__nav">
-							<ul>
-								<li><a href="#">Главная</a></li>
-								<li><a href="#">lorem121313</a></li>
-								<li><a href="#">lorem1</a></li>
-								<li><a href="#">Онлайн-магазин</a></li>
-								<li><a href="#">Онлайн-магазин</a></li>
-								<li><a href="#">lorem13133123</a></li>
-								<li><a href="#">О Нас</a></li>
-								<li><a href="#">lorem1</a></li>
-								<li><a href="#">О Нас</a></li>
-								<li><a href="#">Контакты</a></li>
-								<li><a href="#">lorem13123132</a></li>
-								<li><a href="#">lorem1</a></li>
-							</ul>
+							<?php 
+								wp_nav_menu([
+									'menu'            => 'footer_menu',
+									'container'       => false,
+								]);
+							?>
 						</div>
 						<div class="footer__form">
 							<input type="email" name="email" placeholder="Введите свой E-mail*" required class="footer__input">
@@ -53,15 +45,7 @@
 						minimumResultsForSearch: -1
 					});
 				}
-			}, 100)
-			// $('.bapf_body').each(function() {
-			// 	let body = $(this);
-			// 	let head = body.prev();
-			// 	if (body.find('input').is(':checked')) {
-			// 		body.show();
-			// 		head.addClass('is-active');
-			// 	}
-			// });
+			}, 100);
 			$(document).on('change', '.orderby', function(){
 				$('.woocommerce-ordering').trigger('submit')
 			});
