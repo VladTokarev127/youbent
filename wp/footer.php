@@ -39,6 +39,39 @@
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 	<script>
 		document.addEventListener('DOMContentLoaded',function() {
+			
+			const colorParent = $('#pa_czvet').parents('tr');
+			const colorSelect = colorParent.find('select');
+			const colorLabel = colorParent.find('.label').clone();
+			colorParent.hide();
+			colorParent.after(`<tr class="color-switcher"></tr>`);
+			const colorSwitcher = $('.color-switcher');
+			colorSwitcher.append(colorLabel);
+			colorSwitcher.append('<td class="value"><div class="color-switcher-list"></div></td>');
+			const colorSwitcherList = colorSwitcher.find('.color-switcher-list');
+			colorSelect.find('option:not(:first-child)').each(function() {
+				let color = $(this).attr('value');
+				let name = $(this).text();
+				colorSwitcherList.append(`
+					<div class="color-switcher-item" style="background-color: #${color}" data-name="${name}" data-value="${color}"></div>
+				`);
+			});
+
+			$(document).on('click', '.color-switcher-item:not(.is-active)', function(e) {
+				e.preventDefault();
+				$('.color-switcher-item').removeClass('is-active');
+				$(this).addClass('is-active');
+				let value = $(this).data('value');
+				colorSelect.val(value);
+				colorSelect.trigger('change');
+			})
+
+			$('.variations select').select2({
+				minimumResultsForSearch: -1
+			});
+			$('.woocommerce-checkout select').select2({
+				minimumResultsForSearch: -1
+			});
 			setInterval(function() {
 				if (!$('.woocommerce-ordering *').is('.select2')) {
 					$('.orderby').select2({

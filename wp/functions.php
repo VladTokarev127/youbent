@@ -61,3 +61,64 @@
 			echo '<div class="product__warranty">'. $warranty .'</div>';
 		}
 	}
+
+	add_action('woocommerce_before_single_product', 'addBreadcrumbs', 10 );
+	function addBreadcrumbs() {
+		global $product;
+		$title = $product->get_title();
+		$prev = get_previous_post_link('%link', '<svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16"><path fill="currentColor" d="M11.519 13.934c0.214 0.217 0.214 0.566 0 0.783s-0.561 0.217-0.775 0l-6.264-6.326c-0.214-0.217-0.214-0.567 0-0.783l6.264-6.326c0.214-0.217 0.561-0.217 0.775 0s0.214 0.566 0 0.783l-5.712 5.934 5.712 5.934z"></path></svg>Назад') ? get_previous_post_link('%link', '<svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16"><path fill="currentColor" d="M11.519 13.934c0.214 0.217 0.214 0.566 0 0.783s-0.561 0.217-0.775 0l-6.264-6.326c-0.214-0.217-0.214-0.567 0-0.783l6.264-6.326c0.214-0.217 0.561-0.217 0.775 0s0.214 0.566 0 0.783l-5.712 5.934 5.712 5.934z"></path></svg>Назад') : '<div class="empty"><svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16"><path fill="currentColor" d="M11.519 13.934c0.214 0.217 0.214 0.566 0 0.783s-0.561 0.217-0.775 0l-6.264-6.326c-0.214-0.217-0.214-0.567 0-0.783l6.264-6.326c0.214-0.217 0.561-0.217 0.775 0s0.214 0.566 0 0.783l-5.712 5.934 5.712 5.934z"></path></svg>Назад</div>';
+		$next = get_next_post_link('%link', 'Вперед<svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16"><path fill="currentColor" d="M4.48 13.934c-0.214 0.217-0.214 0.566 0 0.783s0.561 0.217 0.775 0l6.264-6.326c0.214-0.217 0.214-0.567 0-0.783l-6.264-6.326c-0.214-0.217-0.561-0.217-0.775 0s-0.214 0.566 0 0.783l5.712 5.934-5.712 5.934z"></path></svg>') ? get_next_post_link('%link', 'Вперед<svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16"><path fill="currentColor" d="M4.48 13.934c-0.214 0.217-0.214 0.566 0 0.783s0.561 0.217 0.775 0l6.264-6.326c0.214-0.217 0.214-0.567 0-0.783l-6.264-6.326c-0.214-0.217-0.561-0.217-0.775 0s-0.214 0.566 0 0.783l5.712 5.934-5.712 5.934z"></path></svg>') : '<div class="empty">Вперед<svg viewBox="0 0 16 16" fill="currentColor" width="16" height="16"><path fill="currentColor" d="M4.48 13.934c-0.214 0.217-0.214 0.566 0 0.783s0.561 0.217 0.775 0l6.264-6.326c0.214-0.217 0.214-0.567 0-0.783l-6.264-6.326c-0.214-0.217-0.561-0.217-0.775 0s-0.214 0.566 0 0.783l5.712 5.934-5.712 5.934z"></path></svg></div>';
+		print_r('<div class="single__header"><div class="breadcrumbs"><a href="/">Главная</a> / <a href="/magazin/" aria-disabled="false">Магазин</a> / <a aria-disabled="true">'. $title .'</a></div><div class="single__nav">'. $prev .''. $next .'</div></div>');
+	}
+
+	add_filter( 'woocommerce_product_tabs', 'woo_rename_tabs', 98 );
+	function woo_rename_tabs( $tabs ) {
+		$tabs['additional_information']['title'] = 'ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ';
+		return $tabs;
+	}
+
+	add_filter('woocommerce_add_to_cart_fragments', 'ta_header_add_to_cart_fragment');
+	function ta_header_add_to_cart_fragment($fragments)
+	{
+		global $woocommerce;
+
+		ob_start();
+
+	?>
+		<?php if ($woocommerce->cart->get_cart_contents_count() > 0) : ?>
+			<a href="/cart" class="header__cart"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" viewBox="221.4 359.3 267 123" data-hook="svg-icon-8"><rect x="221.4" y="403.7" width="152.4" height="6"></rect><path d="M345.9 482.3h-96.4c-1.2 0-2.4-1.2-3-2.4l-19.6-70.8 6-1.8 19.1 68.5h92.3l19-68.5 6 1.8 -19.6 70.8C348.2 481.1 347 482.3 345.9 482.3z"></path><rect x="259" y="380.1" transform="matrix(-0.527 -0.8498 0.8498 -0.527 109.9867 827.3946)" width="52.4" height="6"></rect><rect x="292.3" y="424.5" width="10.7" height="10.7"></rect><rect x="315.5" y="424.5" width="10.7" height="10.7"></rect><rect x="269.1" y="424.5" width="10.7" height="10.7"></rect><rect x="292.3" y="447.7" width="10.7" height="10.7"></rect><rect x="315.5" y="447.7" width="10.7" height="10.7"></rect><rect x="269.1" y="447.7" width="10.7" height="10.7"></rect><text x="390" y="474" text-anchor="start" class="bGBBgJ jDuYHa" data-hook="items-count"><?php echo $woocommerce->cart->get_cart_contents_count(); ?></text></svg></a>
+		<?php else : ?>
+			<a href="/cart" class="header__cart"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" viewBox="221.4 359.3 267 123" data-hook="svg-icon-8"><rect x="221.4" y="403.7" width="152.4" height="6"></rect><path d="M345.9 482.3h-96.4c-1.2 0-2.4-1.2-3-2.4l-19.6-70.8 6-1.8 19.1 68.5h92.3l19-68.5 6 1.8 -19.6 70.8C348.2 481.1 347 482.3 345.9 482.3z"></path><rect x="259" y="380.1" transform="matrix(-0.527 -0.8498 0.8498 -0.527 109.9867 827.3946)" width="52.4" height="6"></rect><rect x="292.3" y="424.5" width="10.7" height="10.7"></rect><rect x="315.5" y="424.5" width="10.7" height="10.7"></rect><rect x="269.1" y="424.5" width="10.7" height="10.7"></rect><rect x="292.3" y="447.7" width="10.7" height="10.7"></rect><rect x="315.5" y="447.7" width="10.7" height="10.7"></rect><rect x="269.1" y="447.7" width="10.7" height="10.7"></rect><text x="390" y="474" text-anchor="start" class="bGBBgJ jDuYHa" data-hook="items-count">0</text></svg></a>
+		<?php endif; ?>
+	<?php
+
+		$fragments['a.header__cart'] = ob_get_clean();
+
+		return $fragments;
+	}
+
+	add_filter('woocommerce_add_to_cart_fragments', 'total_header_add_to_cart_fragment');
+	function total_header_add_to_cart_fragment($fragments)
+	{
+		global $woocommerce;
+
+		ob_start();
+
+	?>
+		<?php if ($woocommerce->cart->get_cart_contents_count() > 0) : ?>
+			<a href="/cart" class="header__cart"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" viewBox="221.4 359.3 267 123" data-hook="svg-icon-8"><rect x="221.4" y="403.7" width="152.4" height="6"></rect><path d="M345.9 482.3h-96.4c-1.2 0-2.4-1.2-3-2.4l-19.6-70.8 6-1.8 19.1 68.5h92.3l19-68.5 6 1.8 -19.6 70.8C348.2 481.1 347 482.3 345.9 482.3z"></path><rect x="259" y="380.1" transform="matrix(-0.527 -0.8498 0.8498 -0.527 109.9867 827.3946)" width="52.4" height="6"></rect><rect x="292.3" y="424.5" width="10.7" height="10.7"></rect><rect x="315.5" y="424.5" width="10.7" height="10.7"></rect><rect x="269.1" y="424.5" width="10.7" height="10.7"></rect><rect x="292.3" y="447.7" width="10.7" height="10.7"></rect><rect x="315.5" y="447.7" width="10.7" height="10.7"></rect><rect x="269.1" y="447.7" width="10.7" height="10.7"></rect><text x="390" y="474" text-anchor="start" class="bGBBgJ jDuYHa" data-hook="items-count"><?php echo $woocommerce->cart->get_cart_contents_count(); ?></text></svg></a>
+		<?php else : ?>
+			<a href="/cart" class="header__cart"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" viewBox="221.4 359.3 267 123" data-hook="svg-icon-8"><rect x="221.4" y="403.7" width="152.4" height="6"></rect><path d="M345.9 482.3h-96.4c-1.2 0-2.4-1.2-3-2.4l-19.6-70.8 6-1.8 19.1 68.5h92.3l19-68.5 6 1.8 -19.6 70.8C348.2 481.1 347 482.3 345.9 482.3z"></path><rect x="259" y="380.1" transform="matrix(-0.527 -0.8498 0.8498 -0.527 109.9867 827.3946)" width="52.4" height="6"></rect><rect x="292.3" y="424.5" width="10.7" height="10.7"></rect><rect x="315.5" y="424.5" width="10.7" height="10.7"></rect><rect x="269.1" y="424.5" width="10.7" height="10.7"></rect><rect x="292.3" y="447.7" width="10.7" height="10.7"></rect><rect x="315.5" y="447.7" width="10.7" height="10.7"></rect><rect x="269.1" y="447.7" width="10.7" height="10.7"></rect><text x="390" y="474" text-anchor="start" class="bGBBgJ jDuYHa" data-hook="items-count">0</text></svg></a>
+		<?php endif; ?>
+	<?php
+
+		$fragments['a.header__cart'] = ob_get_clean();
+
+		return $fragments;
+	}
+
+	add_filter( 'woocommerce_account_menu_items', 'remove_my_account_links' );
+	function remove_my_account_links( $menu_links ){
+		unset( $menu_links[ 'downloads' ] );
+		return $menu_links;
+	}

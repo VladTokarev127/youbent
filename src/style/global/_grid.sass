@@ -253,6 +253,7 @@ h1,h2,h3,h4,h5,h6
 	margin-right: 0 !important
 	float: none !important
 	margin-bottom: 0 !important
+	padding: 0 !important
 	.product__warranty
 		position: absolute
 		left: 0
@@ -347,9 +348,280 @@ ul.products::before, ul.products::after
 .page-content
 	flex: 1 100%
 	order: -9
+.woocommerce-checkout
+	input,textarea
+		border: 1px solid #000 !important
+		font-family: inherit !important
+		font-size: 16px !important
+		font-family: inherit !important
+		background: 0 !important
+		padding: 0 10px !important
+		color: #000 !important
+		width: auto !important
+		height: 37px !important
+		width: 100% !important
+		background: #fff !important
+		&:hover,
+		&:focus-visible
+			border-width: 2px !important
+	textarea
+		padding: 10px !important
+		min-height: 156px !important
+		height: auto !important
+	.button
+		border: 2px solid #BB2423
+		padding: 0 15px
+		background: 0
+		display: flex
+		align-items: center
+		justify-content: center
+		text-align: center
+		text-decoration: none
+		transition: .3s ease-in-out
+		height: 36px
+		color: #bb2423
+		cursor: pointer
+		font-weight: normal
+		width: max-content
+		&:hover,
+		&:focus-visible
+			background: #bb2423
+			color: #fff
+	h3
+		font-size: 20px
+		font-family: $syne-font
+		text-transform: uppercase
+		border-bottom: 1px solid #bab8b8 !important
+		padding-bottom: 32px !important
+		margin-bottom: 10px !important
+		color: #bb2423
+	label
+		padding-bottom: 8px
+		font-size: 16px
+		color: #757575
+	.checkout_coupon
+		width: 100%
+		margin-bottom: 20px
+	.form-row-first
+		margin-bottom: 0
+	.woocommerce-info
+		margin-bottom: 10px
+	table
+		border-collapse: collapse
+	table th
+		padding: 10px
+		background: 0
+		border: 1px solid #C7C7C7
+		width: 50%
+		font-size: 16px
+		color: #000
+		font-weight: normal
+		background-color: #fff !important
+	table td
+		padding: 10px
+		background: 0
+		border: 1px solid #C7C7C7 !important
+		width: 50%
+		font-size: 16px
+		color: #000 !important
+		font-weight: normal
+		background-color: #fff !important
+	.select2-container
+		width: 100% !important
+	.select2-container--default .select2-selection--single .select2-selection__arrow b
+		border-color: #444444 transparent transparent
+	.select2-container .select2-selection--single
+		height: 40px
+		border-radius: 0
+		width: 100%
+		border: 1px solid #444444
+		background-color: #fff
+	.select2-container--default .select2-selection--single .select2-selection__rendered
+		line-height: 40px
+		color: #444444
+		font-size: 16px
+		padding: 0 20px
+	.select2-container--default .select2-selection--single .select2-selection__arrow
+		height: 38px
+	.select2-results__option
+		padding: 8px 20px !important
+		color: #444444 !important
+		font-size: 15px !important
+		background-color: #fff !important
+	.select2-container--default .select2-results__option--selected,
+	.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable
+		background-color: #F3F3F3 !important
+		color: #444444 !important
+	.select2-container--default .select2-results>.select2-results__options
+		border: 1px solid #444444 !important
+	.select2-dropdown
+		border: 0 !important
 
-.woocommerce-cart
-	background-color: #e8e6e6
+.woocommerce-account
+	background-color: #BB2423
+	.woocommerce-MyAccount-navigation ul li a::before
+		display: none
+	.woocommerce-MyAccount-navigation ul
+		padding: 10px
+		border: 1px solid #CCCCCC
+	.woocommerce-MyAccount-navigation ul li a
+		color: #000
+		transition: .3s ease-in-out
+		&:hover
+			color: #bb2423
+	.woocommerce-MyAccount-navigation ul li
+		border: 0 !important
+	.woocommerce-MyAccount-navigation
+		float: none
+		background-color: #fff
+		padding: 20px
+		flex: 0 290px
+		width: auto
+		margin-right: 10px
+		@include media-breakpoint-down(sm)
+			margin-right: 0
+	input,textarea
+		border: 1px solid #000 !important
+		font-family: inherit !important
+		font-size: 16px !important
+		font-family: inherit !important
+		background: 0 !important
+		padding: 0 10px !important
+		color: #000 !important
+		width: auto !important
+		height: 37px !important
+		width: 100% !important
+		background: #fff !important
+		&:hover,
+		&:focus-visible
+			border-width: 2px !important
+		& + span
+			display: block
+			margin-top: 10px
+	textarea
+		padding: 10px !important
+		min-height: 156px !important
+		height: auto !important
+	.button
+		border: 2px solid #BB2423
+		padding: 0 15px
+		background: 0
+		display: flex
+		align-items: center
+		justify-content: center
+		text-align: center
+		text-decoration: none
+		transition: .3s ease-in-out
+		height: 36px
+		color: #bb2423
+		cursor: pointer
+		font-weight: normal
+		width: max-content !important
+		&:hover,
+		&:focus-visible
+			background: #bb2423
+			color: #fff
+	label
+		padding-bottom: 8px
+		font-size: 16px
+		color: #757575
+	.addresses header.title a
+		margin-top: 0
+	.col2-set.addresses .woocommerce-Address
+		width: 100% !important
+		float: none !important
+		margin: 0 !important
+		margin-bottom: 20px
+		&:last-child
+			margin-bottom: 0
+	.woocommerce-MyAccount-content
+		padding: 20px
+		flex: 1
+		width: auto
+		background-color: #fff
+		float: none
+		p
+			font-size: 15px
+			color: #000
+		a
+			color: #000
+			transition: .3s ease-in-out
+			&:hover
+				color: #bb2423
+	.entry-header
+		display: none
+	.entry-content
+		background-color: #BB2423
+		.woocommerce
+			display: flex
+			flex-wrap: wrap
+			max-width: 980px
+			margin: 0 auto
+			padding: 20px 0
+			@include media-breakpoint-down(sm)
+				padding: 15px
+		.woocommerce-notices-wrapper
+			flex: 1 100%
+	.tinv-wishlist
+		padding: 0 !important
+		.product-date
+			display: none !important
+		.variation
+			& > *:nth-last-child(1),
+			& > *:nth-last-child(2),
+			& > *:nth-child(1),
+			& > *:nth-child(2)
+				display: none
+		form
+			width: 100% !important
+		tfoot
+			display: none !important
+		.product-cb
+			display: none !important
+		.product-stock
+			display: none !important
+		tbody td.product-action
+			@include media-breakpoint-down(sm)
+				display: flex !important
+				justify-content: center
+		.product-remove
+			position: absolute
+			right: 16px
+			top: -13px
+			background: 0
+			@include media-breakpoint-down(sm)
+				position: static
+		a
+			color: #000
+			transition: .3s ease-in-out
+			&:hover
+				color: #bb2423
+		tr
+			position: relative
+	
+
+.woocommerce-cart,
+.woocommerce-checkout
+	.button
+		border: 2px solid #BB2423 !important
+		padding: 0 15px !important
+		background: 0 !important
+		display: flex !important
+		align-items: center !important
+		justify-content: center !important
+		text-align: center !important
+		text-decoration: none !important
+		transition: .3s ease-in-out !important
+		height: 36px !important
+		color: #bb2423 !important
+		cursor: pointer !important
+		font-weight: normal !important
+		width: max-content !important
+		font-size: 16px !important
+		&:hover,
+		&:focus-visible
+			background: #bb2423 !important
+			color: #fff !important
 	.entry-header
 		display: none
 	.entry-content
@@ -559,3 +831,323 @@ ul.products::before, ul.products::after
 				display: none
 			td, th
 				padding: 0
+
+.related
+	display: none !important
+
+.wc-tabs
+	display: none !important
+
+.woocommerce-tabs .panel
+	width: 100% !important
+	float: none !important
+
+.single-product div.product .woocommerce-tabs
+	display: grid
+	grid-template-columns: 500px 355px
+	justify-content: space-between
+	width: 100%
+	clear: unset
+	padding-top: 0
+	overflow: visible !important
+	position: relative
+	z-index: 1
+	@include media-breakpoint-down(md)
+		grid-template-columns: repeat(1,1fr)
+		grid-gap: 20px
+	&::before,
+	&::after
+		display: none
+	table
+		border-collapse: collapse
+	table th
+		padding: 10px
+		background: 0
+		border: 1px solid #C7C7C7
+		width: 50%
+		font-size: 16px
+		color: #000
+		font-weight: normal
+	table td
+		padding: 10px
+		background: 0
+		border: 1px solid #C7C7C7
+		width: 50%
+		font-size: 16px
+		color: #000
+		font-weight: normal
+
+.woocommerce-tabs .panel h2:first-of-type
+	font-size: 18px
+	margin-bottom: 20px
+	text-transform: uppercase
+
+.woocommerce-Tabs-panel--description h2:first-of-type
+	display: none !important
+
+.woocommerce-Tabs-panel--description,
+.woocommerce-Tabs-panel--additional_information
+	display: block !important
+
+.woocommerce-Tabs-panel--additional_information
+	max-width: 100%
+	@include media-breakpoint-down(xs)
+		overflow: auto
+		overflow-y: hidden
+		table
+			min-width: 565px
+
+.woocommerce-Tabs-panel--description
+	margin-top: -40px !important
+	p
+		font-size: 18px
+		color: #000
+
+.type-product
+	max-width: 920px
+	margin: 0 auto
+	padding: 0 15px
+	width: 100%
+
+.single-product div.product
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+
+.single-product div.product .woocommerce-product-gallery
+	flex: 0 500px
+	width: auto
+	float: none
+	margin-right: 0
+	margin-bottom: 0
+	display: grid
+	grid-template-columns: 440px 45px
+	justify-content: space-between
+	align-items: stretch
+	@include media-breakpoint-down(md)
+		grid-template-columns: auto 45px
+		grid-gap: 20px
+		flex: 1 100%
+
+.single-product div.product .woocommerce-product-gallery .woocommerce-product-gallery__trigger
+	display: none
+
+.single-product div.product .woocommerce-product-gallery .flex-control-thumbs
+	display: flex
+	flex-direction: column
+	&::before,
+	&::after
+		display: none
+.single-product div.product .woocommerce-product-gallery img
+	width: 100%
+.single-product div.product .woocommerce-product-gallery.woocommerce-product-gallery--columns-4 .flex-control-thumbs li
+	clear: none !important
+	width: 100% !important
+	height: 45px !important
+	float: none !important
+	margin-bottom: 15px !important
+	margin-right: 0 !important
+	&:last-child
+		margin-bottom: 0 !important
+
+.single-product div.product .summary
+	width: auto
+	flex: 0 355px
+	float: none
+	@include media-breakpoint-down(md)
+		flex: 1 100%
+
+.woocommerce-product-gallery__wrapper
+	margin: 0 !important
+
+.single-product
+	.product_title
+		color: #bb2423
+		font-size: 30px
+		font-family: $syne-font
+		margin-bottom: 27px
+	.price
+		font-size: 18px !important
+		color: #575757 !important
+		margin: 0 !important
+		margin-bottom: 5px !important
+		*
+			font-size: inherit !important
+			color: inherit !important
+	div.product table.variations th
+		padding-bottom: 8px
+		font-size: 16px
+		color: #757575
+	div.product form.cart
+		padding: 0
+	.select2-container
+		width: 100% !important
+	.select2-container--default .select2-selection--single .select2-selection__arrow b
+		border-color: #444444 transparent transparent
+	.select2-container .select2-selection--single
+		height: 40px
+		border-radius: 0
+		width: 100%
+		border: 1px solid #444444
+		background-color: #fff
+	.select2-container--default .select2-selection--single .select2-selection__rendered
+		line-height: 40px
+		color: #444444
+		font-size: 16px
+		padding: 0 20px
+	.select2-container--default .select2-selection--single .select2-selection__arrow
+		height: 38px
+	.select2-results__option
+		padding: 8px 20px !important
+		color: #444444 !important
+		font-size: 15px !important
+		background-color: #fff !important
+	.select2-container--default .select2-results__option--selected,
+	.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable
+		background-color: #F3F3F3 !important
+		color: #444444 !important
+	.select2-container--default .select2-results>.select2-results__options
+		border: 1px solid #444444 !important
+	.select2-dropdown
+		border: 0 !important
+	div.product form.cart .quantity
+		width: 100%
+		float: none
+		margin: 0
+		margin-bottom: 40px
+		input
+			width: 87px !important
+			height: 40px !important
+			border: 1px solid #444444 !important
+			background: 0
+			font-family: inherit
+	.woocommerce-variation-add-to-cart
+		display: flex
+		flex-wrap: wrap
+	.product_meta
+		display: none !important
+	.tinvwl_add_to_wishlist_button
+		width: 42px
+		height: 42px
+		display: flex
+		align-items: center
+		justify-content: center
+		border: 1px solid #BB2423
+		color: #bb2423
+		margin-top: 0 !important
+		span
+			display: none !important
+		&::before
+			font-size: 32px !important
+			margin-right: 0 !important
+	.single_add_to_cart_button
+		flex: 0 305px !important
+		margin-right: auto !important
+		border: 2px solid #BB2423 !important
+		background: #bb2423 !important
+		display: flex !important
+		align-items: center !important
+		justify-content: center !important
+		text-align: center !important
+		text-decoration: none !important
+		transition: .3s ease-in-out !important
+		padding: 0 !important
+		height: 42px !important
+		color: #fff !important
+		cursor: pointer !important
+		@include media-breakpoint-down(xs)
+			flex: 0 235px !important
+		&:hover,
+		&:focus-visible
+			background: 0 !important
+			color: #bb2423 !important
+
+.single-product div.product::before, .single-product div.product::after
+	display: none !important
+
+.woocommerce-variation.single_variation
+	display: none !important
+
+.single__header
+	max-width: 920px
+	padding: 0 15px
+	margin: 0 auto
+	display: grid
+	grid-template-columns: 500px 355px
+	justify-content: space-between
+	padding-top: 35px
+	padding-bottom: 60px
+	@include media-breakpoint-down(md)
+		grid-template-columns: repeat(1,1fr)
+		grid-gap: 20px
+	.breadcrumbs
+		a
+			color: #000
+			text-decoration: none
+			font-size: 18px
+			&:last-child
+				opacity: 0.6
+
+.single__nav
+	display: flex
+	align-items: center
+	justify-content: flex-end
+	@include media-breakpoint-down(md)
+		justify-content: flex-start
+	a,div
+		display: flex
+		align-items: center
+		color: #000
+		font-size: 18px
+		&.empty
+			opacity: 0.6
+		&:first-child
+			svg
+				margin-right: 5px
+		&:last-child
+			margin-left: 10px
+			&::before
+				border-left: 1px solid #000
+				margin-right: 10px
+				content: ""
+				display: inline-block
+				height: 16px
+				transform: translateY(-1px)
+			svg
+				margin-left: 5px
+
+.storefront-product-pagination
+	display: none !important
+
+.color-switcher
+	&-list
+		display: flex
+		align-items: center
+		height: 32px
+	&-item
+		width: 20px
+		height: 20px
+		border-radius: 50px
+		border: 1px solid #c9c9c9
+		position: relative
+		margin-right: 8px
+		cursor: pointer
+		&:last-child
+			margin-right: 0
+		&:hover,
+		&:focus-visible,
+		&.is-active
+			&::after
+				opacity: 1
+		&::after
+			position: absolute
+			left: 50%
+			top: 50%
+			transform: translate(-50%, -50%)
+			content: ''
+			width: 26px
+			height: 26px
+			border: 1px solid #000
+			opacity: 0
+			transition: .3s ease-in-out
+			border-radius: 50%
