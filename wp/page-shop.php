@@ -14,7 +14,7 @@
 
 		<!-- start section dev -->
 		<section class="dev">
-			<div class="dev__container">
+			<div class="dev__container dev__container_shop">
 
 				<div class="dev__content" style="padding-top: 0;">
 					<h2 class="dev__title"><?php the_field('sub_title'); ?></h2>
@@ -34,18 +34,7 @@
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-			<form class="woocommerce-ordering" method="get">
-				<select name="orderby" class="orderby" aria-label="Заказ в магазине">
-					<option value="menu_order" <?php echo empty($_GET['orderby']) ? 'selected="selected"' : ''; ?>>Исходная сортировка</option>
-					<option value="popularity" <?php echo $_GET['orderby'] === 'popularity' ? 'selected="selected"' : ''; ?>>По популярности</option>
-					<option value="rating" <?php echo $_GET['orderby'] === 'rating' ? 'selected="selected"' : ''; ?>>По рейтингу</option>
-					<option value="date" <?php echo $_GET['orderby'] === 'date' ? 'selected="selected"' : ''; ?>>По новизне</option>
-					<option value="price" <?php echo $_GET['orderby'] === 'price' ? 'selected="selected"' : ''; ?>>Цены: по возрастанию</option>
-					<option value="price-desc" <?php echo $_GET['orderby'] === 'price-desc' ? 'selected="selected"' : ''; ?>>Цены: по убыванию</option>
-				</select>
-				<input type="hidden" name="paged" value="1">
-			</form>
-			<?php echo do_shortcode('[products limit="15" columns="5"]'); ?>
+			<?php echo do_shortcode('[products limit="15" columns="5" paginate="true"]'); ?>
 		</main>
 	</div>
 

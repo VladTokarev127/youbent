@@ -53,6 +53,12 @@
 		));
 	}
 
+	add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+	function custom_override_checkout_fields( $fields ) {
+		unset($fields['billing']['billing_company']);
+		return $fields;
+	}
+
 	add_action('woocommerce_before_shop_loop_item_title', 'addWarranty', 10 );
 	function addWarranty() {
 		global $product;
@@ -121,4 +127,64 @@
 	function remove_my_account_links( $menu_links ){
 		unset( $menu_links[ 'downloads' ] );
 		return $menu_links;
+	}
+
+	add_filter('woocommerce_add_to_cart_fragments', 'drop_header_add_to_cart_fragment');
+	function drop_header_add_to_cart_fragment($fragments)
+	{
+		global $woocommerce;
+
+		ob_start();
+
+	?>
+		<div class="header__cart-dropdown">
+			<div class="header__cart-dropdown-wrapper">
+				<div class="header__cart-dropdown-title">Корзина</div>
+				<div class="header__cart-dropdown-list">
+					<?php
+					global $woocommerce;
+					foreach ($woocommerce->cart->get_cart() as $key => $item) :
+						$removeUrl = $woocommerce->cart->get_remove_url($item['product_id']);
+						$myMeta = wc_get_product($item['product_id']);
+						$myPrice = $myMeta->price;
+						$myImg = get_the_post_thumbnail_url($item['product_id'], 'full');
+					?>
+						<div class="header__cart-dropdown-item" data-key="<?php echo $key; ?>">
+							<a href="<?php echo get_permalink($item['product_id']); ?>" class="header__cart-dropdown-img"><img src="<?php echo $myImg; ?>" alt=""></a>
+							<div class="header__cart-dropdown-content">
+								<a href="<?php echo get_permalink($item['product_id']); ?>" class="header__cart-dropdown-item-title"><?php echo $myMeta->get_title(); ?></a>
+								<div class="header__cart-dropdown-price"><?php echo number_format($myPrice, 2, ',', ' '); ?> ₽ x <?php echo $item['quantity'] ?></div>
+								<?php woocommerce_quantity_input(array('input_value' => $item['quantity']), $myMeta); ?>
+							</div>
+							<a href="<?php echo $removeUrl; ?>" class="remove remove_from_cart_button" aria-label="Remove this item" data-product_id="<?php echo $item['product_id']; ?>" data-cart_item_key="<?php echo $item['key'] ?>" data-product_sku="">×</a>
+						</div>
+					<?php endforeach;
+					?>
+				</div>
+				<div class="header__cart-dropdown-total">
+					<div class="header__cart-dropdown-total-title">Сумма</div>
+					<div class="header__cart-dropdown-total-val"><?php echo number_format($woocommerce->cart->total, 2, ',', ' '); ?> ₽</div>
+				</div>
+				<div class="header__cart-dropdown-btn-wrapper">
+					<a href="/cart" class="header__cart-dropdown-btn btn">Корзина</a>
+				</div>
+			</div>
+		</div>
+	<?php
+
+		$fragments['div.header__cart-dropdown'] = ob_get_clean();
+
+		return $fragments;
+	}
+
+
+	add_action('wp_ajax_set_qty', 'set_qty');
+	add_action('wp_ajax_nopriv_set_qty', 'set_qty');
+	function set_qty() {
+		$qty = $_POST['qty'];
+		$key = $_POST['key'];
+		print_r($key);
+		print_r($qty);
+		WC()->cart->set_quantity( $key, $qty, false );
+		WC()->cart->calculate_totals();
 	}

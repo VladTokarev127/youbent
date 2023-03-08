@@ -6,14 +6,6 @@ $(function() {
 		$('.header__nav').slideToggle(300);
 	});
 
-	$(document).on('click','.bapf_head',function(e) {
-		e.preventDefault();
-		$(this)
-			.toggleClass('is-active')
-			.next()
-			.slideToggle(300);
-	});
-
 	$('[data-accordion-trigger]').click(function(e) {
 		e.preventDefault();
 		$(this)

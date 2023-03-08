@@ -113,10 +113,63 @@ h1,h2,h3,h4,h5,h6
 			background: #bb2423
 			color: #fff
 .storefront-sorting
+	&:first-child
+		.woocommerce-pagination
+			display: none !important
 	&:last-child
-		display: none
+		.woocommerce-ordering
+			display: none !important
 	.woocommerce-result-count
 		display: none
+	.woocommerce-pagination
+		display: flex
+		justify-content: center
+		align-items: center
+		width: 100%
+		float: none
+	.woocommerce-pagination .page-numbers
+		font-size: 16px
+		border: 0
+		padding: 8px
+		margin: 4px
+		color: #000 !important
+		background: 0 !important
+		transition: .3s ease-in-out
+		&:hover,
+		&:focus-visible
+			background: 0 !important
+			color: #bb2423 !important
+	.woocommerce-pagination .page-numbers li .page-numbers.current
+		color: #bb2423 !important
+	.woocommerce-pagination .next, .woocommerce-pagination .prev
+		background: 0 !important
+		color: #999 !important
+		padding: 8px
+		&:hover,
+		&:focus-visible
+			background: 0 !important
+			color: #bb2423 !important
+	.woocommerce-pagination .next
+		margin-left: 16px
+		&::after
+			font-family: inherit
+			width: 24px
+			height: 24px
+			background-image: url(../img/arrow-next.svg)
+			background-repeat: no-repeat
+			background-position: center
+			content: '' !important
+	.woocommerce-pagination .prev
+		margin-right: 16px
+		&::after
+			font-family: inherit
+			width: 24px
+			height: 24px
+			background-image: url(../img/arrow-prev.svg)
+			background-repeat: no-repeat
+			background-position: center
+			content: '' !important
+
 
 .widget-area
 	display: none !important
@@ -197,25 +250,28 @@ h1,h2,h3,h4,h5,h6
 		margin-bottom: 0
 	.bapf_body
 		padding-top: 20px
-		display: none
 	.bapf_head
-		cursor: pointer
-		display: flex
-		align-items: center
-		justify-content: space-between
-		&.is-active
-			&::after
-				content: '-'
-		&::after
+		h3
+			cursor: pointer
 			display: flex
 			align-items: center
-			justify-content: center
-			content: '+'
-			color: #fff
-			font-size: 30px
-			line-height: 0
-			font-weight: 100
-			font-family: $syne-font
+			justify-content: space-between
+			padding: 0
+			i
+				&.fa-chevron-up::after
+					content: '-' !important
+				&::after
+					display: flex
+					align-items: center
+					justify-content: center
+					content: '+' !important
+					color: #fff
+					font-size: 30px
+					line-height: 0
+					font-weight: 100
+					font-family: $syne-font !important
+				&::before
+					display: none
 		h3
 			color: #fff
 			font-size: 16px
@@ -239,6 +295,7 @@ h1,h2,h3,h4,h5,h6
 	display: grid !important
 	grid-template-columns: repeat(5,1fr) !important
 	grid-gap: 20px !important
+	max-width: 1500px !important
 	@include media-breakpoint-down(lg)
 		grid-template-columns: repeat(4,1fr) !important
 	@include media-breakpoint-down(md)
@@ -248,12 +305,218 @@ h1,h2,h3,h4,h5,h6
 	@include media-breakpoint-down(xs)
 		grid-template-columns: repeat(1,1fr) !important
 
+.xoo-qv-container
+	max-height: calc(100% - 60px)
+	height: max-content
+	max-width: 950px
+	top: 30px
+	bottom: 30px
+	left: 15%
+	right: 15%
+	padding: 32px
+
+.xoo-qv-main
+	.xoo-qv-plink
+		padding: 0 !important
+		background: 0 !important
+		margin-top: 0
+		a
+			color: #000
+			text-decoration: underline
+			font-size: 14px
+			transition: .3s ease-in-out
+			&:hover
+				color: #bb2423
+	.xoo-qv-images,
+	.xoo-qv-summary
+		width: auto !important
+		float: none !important
+	div.product .xoo-qv-images .images
+		flex: 0 500px
+		width: auto
+		float: none
+		margin-right: 0
+		margin-bottom: 0
+		display: grid
+		grid-template-columns: 440px 45px
+		justify-content: space-between
+		align-items: stretch
+		@include media-breakpoint-down(md)
+			grid-template-columns: auto 45px
+			grid-gap: 20px
+			flex: 1 100%
+	div.product .xoo-qv-images .thumbnails
+		display: flex
+		flex-direction: column
+		&::before,
+		&::after
+			display: none
+	div.product .xoo-qv-images img
+		width: 100%
+	div.product .xoo-qv-images .thumbnails a
+		clear: none !important
+		width: 100% !important
+		height: 45px !important
+		float: none !important
+		margin-bottom: 15px !important
+		margin-right: 0 !important
+		&:last-child
+			margin-bottom: 0 !important
+	div.product .summary
+		width: auto
+		flex: 0 355px
+		float: none
+		@include media-breakpoint-down(md)
+			flex: 1 100%
+	.product_title
+		color: #bb2423
+		font-size: 30px
+		font-family: $syne-font
+		margin-bottom: 27px
+	.price
+		font-size: 18px !important
+		color: #575757 !important
+		margin: 0 !important
+		margin-bottom: 5px !important
+		*
+			font-size: inherit !important
+			color: inherit !important
+	div.product table.variations th
+		padding-bottom: 8px
+		font-size: 16px
+		color: #757575
+	div.product form.cart
+		padding: 0
+	.select2-container
+		width: 100% !important
+	.select2-container--default .select2-selection--single .select2-selection__arrow b
+		border-color: #444444 transparent transparent
+	.select2-container .select2-selection--single
+		height: 40px
+		border-radius: 0
+		width: 100%
+		border: 1px solid #444444
+		background-color: #fff
+	.select2-container--default .select2-selection--single .select2-selection__rendered
+		line-height: 40px
+		color: #444444
+		font-size: 16px
+		padding: 0 20px
+	.select2-container--default .select2-selection--single .select2-selection__arrow
+		height: 38px
+	.select2-results__option
+		padding: 8px 20px !important
+		color: #444444 !important
+		font-size: 15px !important
+		background-color: #fff !important
+	.select2-container--default .select2-results__option--selected,
+	.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable
+		background-color: #F3F3F3 !important
+		color: #444444 !important
+	.select2-container--default .select2-results>.select2-results__options
+		border: 1px solid #444444 !important
+	.select2-dropdown
+		border: 0 !important
+	div.product form.cart .quantity
+		width: 100%
+		float: none
+		margin: 0
+		margin-bottom: 40px
+		input
+			width: 87px !important
+			height: 40px !important
+			border: 1px solid #444444 !important
+			background: 0
+			font-family: inherit
+	.woocommerce-variation-add-to-cart
+		display: flex
+		flex-wrap: wrap
+	.product_meta
+		display: none !important
+	.tinvwl_add_to_wishlist_button
+		width: 42px
+		height: 42px
+		display: flex
+		align-items: center
+		justify-content: center
+		border: 1px solid #BB2423
+		color: #bb2423
+		margin-top: 0 !important
+		span
+			display: none !important
+		&::before
+			font-size: 32px !important
+			margin-right: 0 !important
+	.single_add_to_cart_button
+		flex: 0 305px !important
+		margin-right: auto !important
+		border: 2px solid #BB2423 !important
+		background: #bb2423 !important
+		display: flex !important
+		align-items: center !important
+		justify-content: center !important
+		text-align: center !important
+		text-decoration: none !important
+		transition: .3s ease-in-out !important
+		padding: 0 !important
+		height: 42px !important
+		color: #fff !important
+		cursor: pointer !important
+		@include media-breakpoint-down(xs)
+			flex: 0 235px !important
+		&:hover,
+		&:focus-visible
+			background: 0 !important
+			color: #bb2423 !important
+	div.product::before, div.product::after
+		display: none !important
+	.woocommerce-variation.single_variation
+		display: none !important
+	div.product
+		display: grid !important
+		grid-template-columns: 500px 355px !important
+		justify-content: space-between !important
+		width: 100% !important
+		clear: unset !important
+		padding-top: 0 !important
+		overflow: visible !important
+		position: relative !important
+		z-index: 1 !important
+		padding: 0 !important
+		@include media-breakpoint-down(md)
+			grid-template-columns: repeat(1,1fr) !important
+			grid-gap: 20px !important
+		&::before,
+		&::after
+			display: none !important
+
 .site-main ul.products.columns-5 li.product
 	width: auto !important
 	margin-right: 0 !important
 	float: none !important
 	margin-bottom: 0 !important
 	padding: 0 !important
+	.xoo-qv-button
+		top: 277px
+		opacity: 0
+		visibility: hidden
+		transition: .3s ease-in-out
+		width: 100%
+		background: 0
+		border: 0
+		height: 50px
+		display: flex
+		align-items: center
+		justify-content: center
+		text-align: center
+		color: #000
+		background: rgba(255, 255, 255, 0.75)
+	&:hover,
+	&:focus-visible
+		.xoo-qv-button
+			top: 257px
+			opacity: 1
+			visibility: visible
 	.product__warranty
 		position: absolute
 		left: 0
@@ -303,6 +566,8 @@ ul.products::before, ul.products::after
 .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable
 	background-color: #1f1f1f !important
 	color: #fff !important
+.select2-container.select2-container--default.select2-container--open
+	z-index: 99999
 
 .page-template-page-shop
 	.woocommerce-ordering
@@ -457,13 +722,70 @@ ul.products::before, ul.products::after
 	.select2-dropdown
 		border: 0 !important
 
+.page-id-11
+	background-color: #e8e6e6 !important
+	.entry-content, .wrapper
+		background-color: #e8e6e6 !important
+	h2
+		flex: 1 100%
+		font-size: 28px
+		color: #fff
+		text-align: center
+
+.page-template-default
+	padding-top: 60px
+	.entry-header
+		max-width: 980px
+		padding: 0 15px
+		margin: 0 auto
+	h1
+		font-size: 32px
+		font-family: $syne-font
+		margin-bottom: 20px
+	h2
+		font-size: 28px
+		font-family: $syne-font
+		margin-bottom: 20px
+	h3
+		font-size: 24px
+		font-family: $syne-font
+		margin-bottom: 20px
+	h4
+		font-size: 20px
+		font-family: $syne-font
+		margin-bottom: 20px
+	.entry-content
+		max-width: 980px
+		padding: 0 15px
+		margin: 0 auto
+		color: #000
+		*
+			color: inherit
+
+.woocommerce-info, .woocommerce-noreviews, p.no-comments
+	background-color: #bb2423 !important
+	color: #fff !important
+
 .woocommerce-account
 	background-color: #BB2423
+	.woocommerce-form-login,
+	.woocommerce-ResetPassword,
+	.woocommerce-form-register
+		max-width: 460px
+		width: 100%
+		margin: 0 auto
+		margin-top: 40px
+		padding: 20px
+		background-color: #e8e6e6
+		a
+			color: #000
+			&:hover
+				color: #bb2423
 	.woocommerce-MyAccount-navigation ul li a::before
 		display: none
 	.woocommerce-MyAccount-navigation ul
 		padding: 10px
-		border: 1px solid #CCCCCC
+		border: 0 !important
 	.woocommerce-MyAccount-navigation ul li a
 		color: #000
 		transition: .3s ease-in-out
@@ -480,7 +802,7 @@ ul.products::before, ul.products::after
 		margin-right: 10px
 		@include media-breakpoint-down(sm)
 			margin-right: 0
-	input,textarea
+	input:not([type="checkbox"]),textarea
 		border: 1px solid #000 !important
 		font-family: inherit !important
 		font-size: 16px !important
@@ -495,7 +817,7 @@ ul.products::before, ul.products::after
 		&:hover,
 		&:focus-visible
 			border-width: 2px !important
-		& + span
+		& + span:not(.show-password-input)
 			display: block
 			margin-top: 10px
 	textarea
@@ -564,6 +886,11 @@ ul.products::before, ul.products::after
 			flex: 1 100%
 	.tinv-wishlist
 		padding: 0 !important
+		.product-action
+			width: 175px
+			padding-right: 40px
+		.product-price
+			white-space: nowrap
 		.product-date
 			display: none !important
 		.variation
@@ -587,7 +914,7 @@ ul.products::before, ul.products::after
 		.product-remove
 			position: absolute
 			right: 16px
-			top: -13px
+			top: 20px
 			background: 0
 			@include media-breakpoint-down(sm)
 				position: static
@@ -598,10 +925,16 @@ ul.products::before, ul.products::after
 				color: #bb2423
 		tr
 			position: relative
-	
+
+.woocommerce-checkout
+	.entry-title
+		display: block !important
 
 .woocommerce-cart,
 .woocommerce-checkout
+	background-color: #e8e6e6
+	.wrapper
+		background-color: #e8e6e6
 	.button
 		border: 2px solid #BB2423 !important
 		padding: 0 15px !important
@@ -653,6 +986,8 @@ ul.products::before, ul.products::after
 				padding-bottom: 32px
 			.shop_table
 				display: block
+				font-family: $syne-font
+				line-height: 1.25
 				.product-remove
 					order: 1
 				.product-thumbnail
@@ -685,6 +1020,28 @@ ul.products::before, ul.products::after
 				.product-quantity
 					flex: 0 80px
 					margin-right: auto
+					position: relative
+					.qib-button-wrapper
+						display: block !important
+						float: none !important
+						position: relative !important
+						margin: 0 !important
+					button.qib-button
+						position: absolute !important
+						padding: 0 !important
+						border: 0 !important
+						background: 0 !important
+						height: 100% !important
+						width: auto !important
+						font-size: 14px !important
+						font-weight: 100 !important
+					button.plus
+						right: 25px !important
+						top: -7px !important
+					button.minus
+						left: 6px!important
+						top: -8px!important
+						font-size: 20px !important
 				.product-quantity .qty
 					width: 80px !important
 					padding: 10px !important
@@ -914,6 +1271,9 @@ ul.products::before, ul.products::after
 	flex-wrap: wrap
 	justify-content: space-between
 
+.wc-forward
+	display: none !important
+
 .single-product div.product .woocommerce-product-gallery
 	flex: 0 500px
 	width: auto
@@ -1024,6 +1384,26 @@ ul.products::before, ul.products::after
 	.woocommerce-variation-add-to-cart
 		display: flex
 		flex-wrap: wrap
+		.wc-buy-now-btn-single
+			order: 1 !important
+			background-color: #000 !important
+			border: 0 !important
+			color: #fff !important
+			flex: 1 100% !important
+			margin-top: 20px !important
+			&:hover,
+			&:focus-visible
+				background-color: #000 !important
+				border: 0 !important
+				color: #fff !important
+				opacity: 0.8 !important
+		button.qib-button
+			display: none !important
+		.qib-button-wrapper
+			display: block !important
+			float: none !important
+			margin: 0 !important
+			margin-bottom: 32px !important
 	.product_meta
 		display: none !important
 	.tinvwl_add_to_wishlist_button
@@ -1151,3 +1531,10 @@ ul.products::before, ul.products::after
 			opacity: 0
 			transition: .3s ease-in-out
 			border-radius: 50%
+
+.mfp-bg,
+.mfp-wrap
+	z-index: 99999999 !important
+
+.woocommerce-result-count
+	display: none !important
