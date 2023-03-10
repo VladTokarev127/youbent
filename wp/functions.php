@@ -53,9 +53,19 @@
 		));
 	}
 
-	add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields' );
+	add_filter( 'woocommerce_checkout_fields' , 'custom_override_checkout_fields', 10, 1 );
 	function custom_override_checkout_fields( $fields ) {
 		unset($fields['billing']['billing_company']);
+		unset($fields['billing']['billing_country']);
+		unset($fields['billing']['billing_city']);
+		unset($fields['billing']['billing_state']);
+		unset($fields['billing']['billing_postcode']);
+		$fields['billing']['billing_address_1']['placeholder'] = 'Ваш город';
+		$fields['billing']['billing_address_1']['label'] = 'Город';
+		$fields['billing']['billing_address_2']['placeholder'] = 'Адрес';
+		$fields['billing']['billing_address_2']['label'] = 'Ваш Адрес';
+		$fields['billing']['billing_address_2']['label_class'] = '';
+		$fields['billing']['billing_address_2']['required'] = true;
 		return $fields;
 	}
 
