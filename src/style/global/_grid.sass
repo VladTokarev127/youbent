@@ -180,6 +180,9 @@ h1,h2,h3,h4,h5,h6
 	background-color: #000 !important
 	padding: 20px 20px 24px !important
 	order: -1 !important
+	@include media-breakpoint-down(xs)
+		flex: 1 100% !important
+		margin-right: 0 !important
 	.berocket_single_filter_widget 
 		margin-bottom: 0
 		input
@@ -304,6 +307,8 @@ h1,h2,h3,h4,h5,h6
 		grid-template-columns: repeat(2,1fr) !important
 	@include media-breakpoint-down(xs)
 		grid-template-columns: repeat(1,1fr) !important
+		max-width: 280px !important
+		margin: 0 auto !important
 
 .xoo-qv-container
 	max-height: calc(100% - 60px)
@@ -428,7 +433,7 @@ h1,h2,h3,h4,h5,h6
 			border: 1px solid #444444 !important
 			background: 0
 			font-family: inherit
-	.woocommerce-variation-add-to-cart
+	.woocommerce-variation-add-to-cart, .cart
 		display: flex
 		flex-wrap: wrap
 	.product_meta
@@ -448,7 +453,7 @@ h1,h2,h3,h4,h5,h6
 			font-size: 32px !important
 			margin-right: 0 !important
 	.single_add_to_cart_button
-		flex: 0 305px !important
+		flex: 0 265px !important
 		margin-right: auto !important
 		border: 2px solid #BB2423 !important
 		background: #bb2423 !important
@@ -600,6 +605,8 @@ ul.products::before, ul.products::after
 		width: 250px !important
 		margin-left: auto !important
 		display: block !important
+		@include media-breakpoint-down(xs)
+			margin: 25px auto !important
 	.widget-area
 		display: block !important
 	main.main
@@ -884,6 +891,8 @@ ul.products::before, ul.products::after
 				padding: 15px
 		.woocommerce-notices-wrapper
 			flex: 1 100%
+	.stock.in-stock
+		display: none !important
 	.tinv-wishlist
 		padding: 0 !important
 		.product-action
@@ -1026,6 +1035,8 @@ ul.products::before, ul.products::after
 						float: none !important
 						position: relative !important
 						margin: 0 !important
+						@include media-breakpoint-down(xs)
+							flex: 1 100% !important
 					button.qib-button
 						position: absolute !important
 						padding: 0 !important
@@ -1255,7 +1266,7 @@ ul.products::before, ul.products::after
 			min-width: 565px
 
 .woocommerce-Tabs-panel--description
-	margin-top: -40px !important
+	// margin-top: -40px !important
 	p
 		font-size: 18px
 		color: #000
@@ -1381,7 +1392,7 @@ ul.products::before, ul.products::after
 			border: 1px solid #444444 !important
 			background: 0
 			font-family: inherit
-	.woocommerce-variation-add-to-cart
+	.woocommerce-variation-add-to-cart, .cart
 		display: flex
 		flex-wrap: wrap
 		.wc-buy-now-btn-single
@@ -1390,6 +1401,7 @@ ul.products::before, ul.products::after
 			border: 0 !important
 			color: #fff !important
 			flex: 1 100% !important
+			margin-right: 0 !important
 			margin-top: 20px !important
 			&:hover,
 			&:focus-visible
@@ -1404,6 +1416,8 @@ ul.products::before, ul.products::after
 			float: none !important
 			margin: 0 !important
 			margin-bottom: 32px !important
+			@include media-breakpoint-down(xs)
+				flex: 1 100% !important
 	.product_meta
 		display: none !important
 	.tinvwl_add_to_wishlist_button
@@ -1421,7 +1435,7 @@ ul.products::before, ul.products::after
 			font-size: 32px !important
 			margin-right: 0 !important
 	.single_add_to_cart_button
-		flex: 0 305px !important
+		flex: 0 265px !important
 		margin-right: auto !important
 		border: 2px solid #BB2423 !important
 		background: #bb2423 !important
@@ -1436,7 +1450,8 @@ ul.products::before, ul.products::after
 		color: #fff !important
 		cursor: pointer !important
 		@include media-breakpoint-down(xs)
-			flex: 0 235px !important
+			flex: 1 !important
+			margin-right: 10px !important
 		&:hover,
 		&:focus-visible
 			background: 0 !important
